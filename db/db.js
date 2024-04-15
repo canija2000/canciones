@@ -11,14 +11,21 @@ const dbName = process.env.DB_NAME;
 
 // Crear una instancia de Sequelize
 const sequelize = new Sequelize(
-    dbName,
-    dbUser,
-    dbPassword,
+  dbName,
+  dbUser,
+  dbPassword,
   {
     host: dbHost,
     dialect: "postgres",
-  
+
   }
 );
 
+//prueba de conexion a la bd
+
+
+
 module.exports = sequelize;
+
+
+
