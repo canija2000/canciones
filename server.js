@@ -2,11 +2,15 @@ const express = require('express');
 const app = express();
 const port = 3000;
 require("dotenv").config();
-const { registarCancion, getAll, editarCancion,eliminarCancion} = require('./scripts/cancion');
+const { registarCancion, getAll, editarCancion, eliminarCancion } = require('./scripts/cancion');
+
+
+app.use(express.json());
+
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
-    })
+})
 
 app.use(express.static('public'));
 
@@ -25,5 +29,6 @@ app.delete('/cancion/:id', eliminarCancion);
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
-    }
+}
 )
+

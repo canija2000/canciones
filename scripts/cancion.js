@@ -9,7 +9,7 @@ const getAll = async (req, res) => {
   }
 };
 
-const registarCancion = async (req, res) => {  
+const registarCancion = async (req, res) => {
   try {
     const cancion = await Cancion.create(req.body); //recibe los datos del body enviados por el cliente
     res.status(201).json(cancion);
@@ -55,19 +55,19 @@ const editarCancion = async (req, res) => {
 };
 
 const eliminarCancion = async (req, res) => {
-    try {
-      const { id } = req.params;
-      const deleted = await Cancion.destroy({ where: { id: id } });
-  
-      if (deleted) {
-        res.status(204).send('Canción eliminada');
-      } else {
-        res.status(404).send('Canción no encontrada');
-      }
-    } catch (error) {
-      res.status(500).send(error.message);
+  try {
+    const { id } = req.params;
+    const deleted = await Cancion.destroy({ where: { id: id } });
+
+    if (deleted) {
+      res.status(200).send('Canción eliminada');
+    } else {
+      res.status(404).send('Canción no encontrada');
     }
-  };
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
 
 module.exports = {
   getAll,
