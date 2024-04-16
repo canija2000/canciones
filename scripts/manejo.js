@@ -5,6 +5,11 @@ const sequelize = require('../db/db');
 // Definir el modelo de la tabla Cancion
 
 const Cancion = sequelize.define('Cancion', {
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+      },
     titulo: {
         type: DataTypes.STRING,
         allowNull: false,
